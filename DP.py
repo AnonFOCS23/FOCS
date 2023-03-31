@@ -1,8 +1,8 @@
 """Code providing the following output
 *** Hard instance ***
-n =  1000000 
-a =  0.789 
-b =  1.24 
+n =  1000000
+a =  0.789
+b =  1.24
 p =  0.421
 
 *** Acceptance times ***
