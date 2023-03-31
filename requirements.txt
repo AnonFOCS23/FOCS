@@ -1,0 +1,24 @@
+python==3.7.3
+
+cycler==0.11.0
+fonttools==4.38.0
+kiwisolver==1.4.4
+matplotlib==3.5.3
+numpy==1.21.6
+packaging==23.0
+Pillow==9.4.0
+pyparsing==3.0.9
+python-dateutil==2.8.2
+scipy==1.7.3
+six==1.16.0
+typing_extensions==4.5.0
+
+// This library version were retrieved as follows.
+// 0. Check the version of python installed with `python --version`
+// 1. Install `virtualenv` if necessary with `pip install virtualenv`
+// 2. Start a virtual environment with `virtualenv env`
+// 3. Activate the virtual environment. In Windows with `.\env\Scripts\activate`
+// 4. Install libraries with `pip install <library>`
+// Note: any library required will be announced if you try to run the script.
+// 5. Write the libraries intalled to this file with `pip freeze > requirements.txt`
+// 6. Deactivate the environment with `deactivate`
