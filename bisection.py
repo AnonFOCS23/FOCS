@@ -84,5 +84,6 @@ if case == 'monotonic':
 else:
     print('(lambda_*, mu_*, nu_*) = ', pos,'\n')
     print('case = NOT MONOTONIC')
-    print('\n***** BISECTION ROOT APPROXIMATION ERROR ****\n')
-    print('|root-true_root|<=xtol+rtol*|root|<=1e-13+.3*1e-14<1e-12')
+    print('\n***** ROOT APPROXIMATION ERROR of BISECTION METHOD: |root-true_root|<=xtol+rtol*|root|<=1e-13+.3*1e-14<1e-12')
+print("")
+print("All complete.")
