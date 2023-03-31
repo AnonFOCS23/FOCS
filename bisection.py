@@ -7,13 +7,17 @@
      iterations: 42
            root: 0.21123119692353295
 
-**** ratio =  0.7234860332935461 ****
-
-case = NOT MONOTONIC
+***** ratio =  0.7234860332935462 ******
 
 * (a, b, p) =  (0.789, 1.24, 0.421) *
 
 (lambda_*, mu_*, nu_*) =  (0.41518612252479703, 0.0022528733893470987, 0.21123119692353295)
+
+case = NOT MONOTONIC
+
+***** ROOT APPROXIMATION ERROR of BISECTION METHOD: |root-true_root|<=xtol+rtol*|root|<=1e-13+.3*1e-14<1e-12
+
+All complete.
 """
 import numpy as np
 from scipy.optimize import bisect #bisection method for root finding
