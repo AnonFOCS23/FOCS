@@ -1,4 +1,5 @@
 """Code providing the following output:
+
 ******* BISECTION METHOD USED *******
 
        converged: True
@@ -7,7 +8,7 @@
      iterations: 42
            root: 0.21123119692353295
 
-***** ratio =  0.7234860332935462 ******
+**** ratio =  0.7234860332935462 ****
 
 * (a, b, p) =  (0.789, 1.24, 0.421) *
 
@@ -22,7 +23,7 @@ All complete.
 import numpy as np
 from scipy.optimize import bisect #bisection method for root finding
 from math import exp
-from math import expm1 #exp(x)-1
+from math import expm1
 from math import log
 from sys import exit
 
@@ -55,9 +56,14 @@ def condIII():#LHS of Condition III
 def condIV():#LHS of Condition IV
     return 2+p*b*(1-p*(b-a))
 
-def maximise_bisect(): #m(a,b,p)
+def condV():#LHS of Condition V
+    return (b*p*(1+(b-a)*p))/((1+p*b)*log(1+p*b))
+
+def maximise_bisect(): #m_tilde(a,b,p)
     nu, r = bisect(dq, y, x, xtol = 1e-13, rtol = 1e-14, full_output = True)
-    #nu = nu_* , r = convergence details
+    #nu_*, r = convergence details
+    #if one wants to use dq(x,z,a,b,p), remember to put all args 
+    #after the variable z, otherwise bisect messes up!!!
     print('\n******* BISECTION METHOD USED *******\n\n', r)
     return q(nu), (x,y,nu)
 
@@ -67,21 +73,21 @@ p = .421
 x = l() #x = lambda_*
 y = m() #y = mu_*
 #check of all conditions
-if condI()>a*p or condII()>=1 or condIII()>=x or condIV()<0 or log(1+p*b)>=p: 
+if condI()>a*p or condII()>=1 or condIII()>=x or condIV()<0 or condV()>=1 or log(1+p*b)>=p: 
     exit('Instance not feasible')
 
 emax = Emax()
 
 if dq(y) <= 0:
-    maxq, pos = q(y), (x, y, y) #monotonic case
+    maxq, pos = q(y), (x, y, y) #monotone case
     case = 'monotonic'
 else:
-    maxq, pos = maximise_bisect() #nonmonotonic case
+    maxq, pos = maximise_bisect() #nonmonotone case
     case = 'nonmonotonic'
     
 M = maxq/emax #M(a,b,p)
 
-print('\n***** ratio = ',M,'******\n\n* (a, b, p) = ',(a, b, p),'*\n')
+print('\n**** ratio = ',M,'****\n\n* (a, b, p) = ',(a, b, p),'*\n')
 if case == 'monotonic':
     print('(lambda_*, mu_*, mu_*) = ', pos,'\n')
     print('case = MONOTONIC')
